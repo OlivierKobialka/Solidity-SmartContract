@@ -1,4 +1,9 @@
-// SPDX-License-Identifier: MIT
+
+/** 
+ *  SourceUnit: c:\Users\olivi\OneDrive\Pulpit\VSCode\Languages\Solidity\contracts\SimpleStorage.sol
+*/
+
+////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
 pragma solidity ^0.8.8;
 
 // pragma solidity >=0.8.0 <0.9.0;
@@ -15,7 +20,7 @@ contract SimpleStorage {
 
     mapping(string => uint256) public nameToFavoriteNumber;
 
-    function store(uint256 _favoriteNumber) public virtual {
+    function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
     }
 
@@ -29,3 +34,4 @@ contract SimpleStorage {
         nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 }
+
