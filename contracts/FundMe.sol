@@ -13,12 +13,7 @@ contract FundMe {
     function fund() public payable {
         // be able to set the minimum amount of ether to send
         // msg.value.getConvertionRate("USD") / 1e18 >= minimumUsd
-        require(
-            getConversionRate(
-                msg.value >= minimumUsd,
-                "You need to spend at least 1 ETH"
-            )
-        );
+        require(msg.value.getConversionRate() >= minimumUsd, "You need to spend more ETH!");
         funders.push(msg.sender); //? msg.sender is the address of the person who called this function
         addressToAmountFunded[msg.sender] = msg.value;
     }
