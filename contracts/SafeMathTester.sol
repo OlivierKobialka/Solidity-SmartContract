@@ -3,4 +3,8 @@ pragma solidity ^0.8.8;
 
 contract SafeMathTester {
     uint8 public bigNumber = 255;
+
+    funcrion add() public {
+        bigNumber = bigNumber + 1; //! resets to 0
+    }
 }
