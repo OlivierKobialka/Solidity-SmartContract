@@ -10,6 +10,12 @@ contract FundMe {
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
 
+    address public owner;
+    
+    constructor() {
+        owner = msg.sender;
+    }
+
     function fund() public payable {
         // be able to set the minimum amount of ether to send
         // msg.value.getConvertionRate("USD") / 1e18 >= minimumUsd
