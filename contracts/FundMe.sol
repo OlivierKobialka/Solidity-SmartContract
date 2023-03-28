@@ -25,6 +25,8 @@ contract FundMe {
     }
 
     function withdraw() public {
+        requiere(msg.sender == owner, "Only owner can withdraw");
+
         for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
             address funder = funders[funderIndex]
             addressToAmountFunded[funder] = 0;
