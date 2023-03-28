@@ -10,14 +10,14 @@ contract FundMe {
     //! 23,515 gas - non-constant
     // 21,415 * 141000000000 = $9.058545
     // 23,515 * 141000000000 = $9.946845
-    
+
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
 
-    address public owner;
+    address public immutable i_owner;
 
     constructor() {
-        owner = msg.sender;
+        i_owner = msg.sender;
     }
 
     function fund() public payable {
@@ -57,7 +57,7 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner");
+        require(msg.sender == i_owner, "You are not the owner");
         _;
     }
 }
