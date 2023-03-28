@@ -3,6 +3,8 @@ pragma solidity ^0.8.8;
 
 import "./PriceConverter.sol";
 
+error NotOwner();
+
 contract FundMe {
     using PriceConverter for uint256;
     uint256 public constant minimumUsd = 50 * 10 ** 18; //? 1e18
@@ -15,6 +17,7 @@ contract FundMe {
     mapping(address => uint256) public addressToAmountFunded;
 
     address public immutable i_owner;
+
     // 21,508 gas - immutable
     //! 23,644 gas - non-immutable
 
@@ -59,7 +62,10 @@ contract FundMe {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == i_owner, "You are not the owner");
+        // require(msg.sender == i_owner, "You are not the owner");
+        if (msg.sender != i_owner) {
+            revert NotOwner();
+        }
         _;
     }
 }
