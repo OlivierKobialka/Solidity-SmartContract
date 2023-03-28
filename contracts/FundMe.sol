@@ -15,6 +15,8 @@ contract FundMe {
     mapping(address => uint256) public addressToAmountFunded;
 
     address public immutable i_owner;
+    // 21,508 gas - immutable
+    //! 23,644 gas - non-immutable
 
     constructor() {
         i_owner = msg.sender;
