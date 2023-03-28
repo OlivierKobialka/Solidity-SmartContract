@@ -7,4 +7,8 @@ constract FallBackExample {
     recive() external payable {
         result = 1;
     }
+
+    fallback() externa; payable {
+        result = 2;
+    }
 }
