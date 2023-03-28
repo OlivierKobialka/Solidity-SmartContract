@@ -4,7 +4,7 @@ pragma solidity ^0.8.8;
 constract FallBackExample {
     uint256 public result;
 
-    recive() external payable {
+    receive() external payable {
         result = 1;
     }
 
