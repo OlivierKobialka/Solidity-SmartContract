@@ -70,10 +70,12 @@ contract FundMe {
     }
 
     receive() external payable {
+        emit Log("receive");
         fund();
     }
 
     fallback() external payable {
+        emit Log("fallback");
         fund();
     }
 }
