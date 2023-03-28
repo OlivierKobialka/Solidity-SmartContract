@@ -5,8 +5,12 @@ import "./PriceConverter.sol";
 
 contract FundMe {
     using PriceConverter for uint256;
-    uint256 public minimumUsd = 50 * 10 ** 18; //? 1e18
-
+    uint256 public constant minimumUsd = 50 * 10 ** 18; //? 1e18
+    // 21,415 gas - constant
+    //! 23,515 gas - non-constant
+    // 21,415 * 141000000000 = $9.058545
+    // 23,515 * 141000000000 = $9.946845
+    
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
 
