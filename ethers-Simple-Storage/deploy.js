@@ -5,7 +5,9 @@ const ethers = require("ethers");
 const fs = require("fs-extra");
 require("dotenv").config();
 
-async function main() {}
+async function main() {
+    
+}
 
 main()
 	.then(() => process.exit(0))
