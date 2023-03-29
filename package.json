@@ -1,7 +1,7 @@
 {
 	"name": "solidity",
 	"version": "1.0.0",
-  "type": "commonjs",
+	"type": "commonjs",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -11,11 +11,8 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"dotenv": "^16.0.3",
-		"ethers": "^6.2.3",
-		"fs": "^0.0.1-security",
-		"fs-extra": "^11.1.1",
-		"solc": "^0.8.7-fixed",
-		"solc-js": "^1.0.1"
+		"dotenv": "^14.2.0",
+		"ethers": "^5.5.3",
+		"solc": "0.8.7-fixed"
 	}
 }
