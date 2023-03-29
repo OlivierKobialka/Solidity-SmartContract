@@ -5,8 +5,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o . ./ethers-Simple-Storage/SimpleStorage.sol",
-		"bin": "hexdump -C ./ethers-Simple-Storage/SimpleStorage_sol_SimpleStorage.bin"
+		"compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o . ./ethers-Simple-Storage/SimpleStorage.sol"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,6 +13,7 @@
 	"dependencies": {
 		"dotenv": "^14.2.0",
 		"ethers": "^5.5.3",
+		"fs-extra": "^11.1.1",
 		"solc": "0.8.7-fixed"
 	},
 	"devDependencies": {
