@@ -1,0 +1,2 @@
+// synchronous - [solidity ]
+// Asynchronous - [javascript]
