@@ -4,13 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o .  ./SimpleStorage.sol"
+		"compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o . ./ethers-Simple-Storage/SimpleStorage.sol"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
 		"dotenv": "^16.0.3",
+		"ethers": "^6.2.3",
 		"solc": "^0.8.7-fixed",
 		"solc-js": "^1.0.1"
 	}
