@@ -16,15 +16,15 @@ async function main() {
 		"utf8"
 	);
 
-	const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
-	console.log("Deploying, please wait…");
-	const contract = await contractFactory.deploy();
-	console.log(contract);
+	// const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
+	// console.log("Deploying, please wait…");
+	// const contract = await contractFactory.deploy();
+	// console.log(contract);
 
-	const deploymentReceipt = await contract.deployTransaction.wait(1);
-	console.log(`Contract deployed to ${contract.address}`);
-	console.log(`Transaction hash: ${deploymentReceipt.transactionHash}`);
-	console.log(" ");
+	// const deploymentReceipt = await contract.deployTransaction.wait(1);
+	// console.log(`Contract deployed to ${contract.address}`);
+	// console.log(`Transaction hash: ${deploymentReceipt.transactionHash}`);
+	// console.log(" ");
 
 	// const nonce = await wallet.getTransactionCount();
 	// let tx = {
@@ -39,6 +39,8 @@ async function main() {
 	// const sentTxResponse = await wallet.sendTransaction(tx);
 	// await sentTxResponse.wait(1);
 	// console.log(sentTxResponse);
+	const currentFavoriteNumber = await contract.retrive();
+	console.log(currentFavoriteNumber);
 }
 
 main()
