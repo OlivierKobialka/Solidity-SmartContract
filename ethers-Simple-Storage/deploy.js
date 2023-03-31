@@ -45,8 +45,7 @@ async function main() {
 
   // }
   // There is also a v, r, and s component of the transaction that Ethers will handle for us.
-  // It's these three components that make up the cryptogra	phic signature.
-  // We won't go into this, because it's a lot of math.
+  // It's these three components that make up the cryptogra<phic signature.
 
   // console.log("Let's deploy another! Please wait...")
   // let resp = await wallet.signTransaction(tx)
