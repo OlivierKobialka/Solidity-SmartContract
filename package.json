@@ -1,7 +1,7 @@
 {
 	"name": "solidity",
 	"version": "1.0.0",
-	"type": "commonjs",
+	"type": "module",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -11,10 +11,13 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@types/fs-extra": "^11.0.1",
 		"dotenv": "^14.3.2",
 		"ethers": "^5.5.3",
 		"fs-extra": "^11.1.1",
-		"solc": "0.8.7-fixed"
+		"solc": "0.8.7-fixed",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.3"
 	},
 	"devDependencies": {
 		"hexdump": "^0.1.0",
