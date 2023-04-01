@@ -10,8 +10,8 @@ async function main() {
     console.log(`Deployed contract to: ${simpleStorage.address}`);
     console.log(network.config);
     if (network.config.chainId === 5 && process.env.ETHERSCAN_API_KEY) {
+        console.log("Waiting for block txes...");
         await simpleStorage.deployTransaction.wait(6);
-        console.log("Waiting for 6 confirmations...");
         await verify(simpleStorage.address, []);
     }
 
