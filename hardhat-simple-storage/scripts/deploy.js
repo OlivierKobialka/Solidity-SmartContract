@@ -8,10 +8,23 @@ async function main() {
     const simpleStorage = await SimpleStorageFactory.deploy();
     await simpleStorage.deployed();
     console.log(`Deployed contract to: ${simpleStorage.address}`);
+    
 }
 
 async function verify(getContractAddress, args) {
-    
+    console.log("Verifying contract...");
+    try {
+        await run("verify:verify", {
+            address: getContractAddress,
+            constructorArguments: args,
+        });
+    } catch (error) {
+        if (error.message.toLowerCase().includes("already verified")) {
+            console.log("Contract already verified");
+        } else {
+            console.log(error);
+        }
+    }
 }
 
 main()
