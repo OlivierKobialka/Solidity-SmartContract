@@ -22,4 +22,7 @@ describe("SimpleStorage tests", function () {
         const currentValue = await simpleStorage.retrieve();
         assert.equal(currentValue.toString(), expectedValue);
     });
+    it("Should push people to the array", async function() {
+      
+    })
 });
