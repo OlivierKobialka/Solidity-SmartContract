@@ -12,7 +12,7 @@ describe("SimpleStorage tests", function () {
         const currentValue = await simpleStorage.retrieve();
         const expectedValue = "0";
         // assert || expect key word
-        assert.equal(currentValue.toString(), expectedValue);
+        expect(currentValue.toString()).to.equal(expectedValue);
     });
     it("Should update when we call store", async function () {
         const expectedValue = "7";
