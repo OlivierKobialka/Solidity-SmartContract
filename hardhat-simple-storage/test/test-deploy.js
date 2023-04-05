@@ -22,7 +22,17 @@ describe("SimpleStorage tests", function () {
         const currentValue = await simpleStorage.retrieve();
         assert.equal(currentValue.toString(), expectedValue);
     });
-    it("Should push people to the array", async function() {
-      
-    })
+    it("Should push people to the array", async function () {
+        const expectedPeople = ["John", "Jane", "Joe"];
+        const transactionResponse = await simpleStorage.addPerson(
+            expectedPeople[0]
+        );
+        await transactionResponse.wait(1);
+
+        const nameToFavNumber = await simpleStorage.getPerson(expectedPeople[0]);
+        assert.equal(nameToFavNumber[0], expectedPeople[0]);
+        assert.equal(nameToFavNumber[1].toString(), "0");
+
+        
+    });
 });
