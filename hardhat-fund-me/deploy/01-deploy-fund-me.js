@@ -1,4 +1,5 @@
 const { networkConfig } = require("../helper-hardhat-config");
+const { network } = require("hardhat");
 // hre = Hardhat Runtime Environment
 // module.exports = async (hre) => {
 //     const { deployments, getNamedAccounts } = hre;
