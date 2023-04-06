@@ -13,6 +13,8 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     //? no matter what chain we are on
     const ethUsdPriceFeed = networkConfig[chainId]["ethUsdPriceFeed"];
 
+    // if the contract does not exist, we deploy a minimal version of for our local testing
+
     const fundMe = await deploy("FundMe", {
         from: deployer,
         args: [
