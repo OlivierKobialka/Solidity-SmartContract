@@ -19,6 +19,8 @@
     "hardhat": "^2.13.0",
     "hardhat-gas-reporter": "^1.0.9",
     "prettier": "^2.8.7",
-    "solidity-coverage": "^0.8.2"
+    "solidity-coverage": "^0.8.2",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "prettier-plugin-solidity": "^1.1.3"
   }
 }

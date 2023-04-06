@@ -4,6 +4,8 @@ import "@nomiclabs/hardhat-etherscan";
 import "./tasks/block-number";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "@nomiclabs/hardhat-ethers";
+import "@typechain/hardhat";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
