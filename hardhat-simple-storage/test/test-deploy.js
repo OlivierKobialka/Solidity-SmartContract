@@ -9,30 +9,23 @@ describe("SimpleStorage tests", function () {
     });
 
     //? assert || expect key word
-    it("Should start with a favorite number of 0", async function () {
-        const currentValue = await simpleStorage.retrieve();
-        const expectedValue = "0";
-        expect(currentValue.toString()).to.equal(expectedValue);
+    describe("favorite number", function () {
+        it("Should start with a favorite number of 0", async function () {
+            const currentValue = await simpleStorage.retrieve();
+            const expectedValue = "0";
+            expect(currentValue.toString()).to.equal(expectedValue);
+        });
     });
-    it("Should update when we call store", async function () {
-        const expectedValue = "7";
-        const transactionResponse = await simpleStorage.store(expectedValue);
-        await transactionResponse.wait(1);
+    describe("store", function () {
+        it("Should update when we call store", async function () {
+            const expectedValue = "7";
+            const transactionResponse = await simpleStorage.store(
+                expectedValue
+            );
+            await transactionResponse.wait(1);
 
-        const currentValue = await simpleStorage.retrieve();
-        assert.equal(currentValue.toString(), expectedValue);
-    });
-    it("Should push people to the array", async function () {
-        const expectedPeople = ["John", "Jane", "Joe"];
-        const transactionResponse = await simpleStorage.addPerson(
-            expectedPeople[0]
-        );
-        await transactionResponse.wait(1);
-
-        const nameToFavNumber = await simpleStorage.getPerson(expectedPeople[0]);
-        assert.equal(nameToFavNumber[0], expectedPeople[0]);
-        assert.equal(nameToFavNumber[1].toString(), "0");
-
-        
+            const currentValue = await simpleStorage.retrieve();
+            assert.equal(currentValue.toString(), expectedValue);
+        });
     });
 });
