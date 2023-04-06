@@ -8,9 +8,7 @@
     "@types/node": "^18.15.11",
     "ts-node": "^10.9.1",
     "typechain": "^8.1.1",
-    "typescript": "^5.0.3"
-  },
-  "devDependencies": {
+    "typescript": "^5.0.3",
     "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@nomiclabs/hardhat-waffle": "^2.0.5",
