@@ -1,26 +1,40 @@
-const { networkConfig } = require("../helper-hardhat-config");
 const { network } = require("hardhat");
-// hre = Hardhat Runtime Environment
-// module.exports = async (hre) => {
-//     const { deployments, getNamedAccounts } = hre;
-//! }; THE SAME
+const {
+    networkConfig,
+    developmentChains,
+} = require("../helper-hardhat-config");
+const { verify } = require("../utils/verify");
+require("dotenv").config();
+
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments;
     const { deployer } = await getNamedAccounts();
     const chainId = network.config.chainId;
 
-    // if chainId is X use address Y
-    // if chainId is Z use address A
-    //? no matter what chain we are on
-    const ethUsdPriceFeed = networkConfig[chainId]["ethUsdPriceFeed"];
-
-    // if the contract does not exist, we deploy a minimal version of for our local testing
-
+    let ethUsdPriceFeedAddress;
+    if (chainId == 31337) {
+        const ethUsdAggregator = await deployments.get("MockV3Aggregator");
+        ethUsdPriceFeedAddress = ethUsdAggregator.address;
+    } else {
+        ethUsdPriceFeedAddress = networkConfig[chainId]["ethUsdPriceFeed"];
+    }
+    log("----------------------------------------------------");
+    log("Deploying FundMe and waiting for confirmations...");
     const fundMe = await deploy("FundMe", {
         from: deployer,
-        args: [
-            /* address? */
-        ], // put price fred address
+        args: [ethUsdPriceFeedAddress],
         log: true,
+        // we need to wait if on a live network so we can verify properly
+        waitConfirmations: network.config.blockConfirmations || 1,
     });
+    log(`FundMe deployed at ${fundMe.address}`);
+
+    if (
+        !developmentChains.includes(network.name) &&
+        process.env.ETHERSCAN_API_KEY
+    ) {
+        await verify(fundMe.address, [ethUsdPriceFeedAddress]);
+    }
 };
+
+module.exports.tags = ["all", "fundme"];
