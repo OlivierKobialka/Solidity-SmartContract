@@ -16,6 +16,7 @@ artifacts
 
 node_modules
 .env
+.prettierrc
 coverage
 coverage.json
 typechain
